@@ -121,3 +121,29 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR,"static"),)
+
+from django.core.urlresolvers import reverse_lazy
+
+LOGIN_REDIRECT_URL = reverse_lazy('home')
+
+AUTHENTICATION_BACKENDS = (
+    'social.backends.twitter.TwitterOAuth',
+    'social.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+
+)
+SOCIAL_AUTH_FACEBOOK_KEY = '1080212178708602'
+SOCIAL_AUTH_FACEBOOK_SECRET = '0e2b2d50e2d024dea977e311ac6edc53'
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+  'locale': 'ru_RU',
+  'fields': 'id, name, email, age_range'
+}
+
+SOCIAL_AUTH_TWITTER_KEY = 'eVUpnRm5dwHZFALNgBHeE8dam'
+SOCIAL_AUTH_TWITTER_SECRET = 'q1ns4RwQfEt7wCwNipuM4lYc5loxmaw2LnnGyeN0HcJJ2fxjI3'
+
+
+
+
